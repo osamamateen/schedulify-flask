@@ -1,10 +1,24 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session, logging, flash
 import os
 import csv
 from os.path import join, dirname, realpath
+from flask_mysqldb import MySQL
+from wtforms import Form, StringField, TextAreaField, PasswordField, validators
+from passlib.hash import sha256_crypt
+from functools import wraps
 import math
 import time 
 app = Flask(__name__)
+
+# Config MySQL
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'schedulify-flask'
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+
+#init MySQL
+mysql = MySQL(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -41,6 +55,64 @@ for row in reader:
 
 # courses data by faculty name
 courses = sorted(coursesData, key=lambda x: (coursesData[x]['faculty']))
+
+# user login
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+  if request.method == 'POST':
+    # get form fields
+    username = request.form['username']
+    password_candidate = request.form['password']
+    
+    #create a cursor
+    cur = mysql.connection.cursor()
+
+    #get user by username
+    result = cur.execute("SELECT * FROM users WHERE username = %s", [username])
+
+    if result > 0:
+      # get stored hash
+      data = cur.fetchone()
+      password = data['password']
+
+      #compare passwords
+      if sha256_crypt.verify(password_candidate, password):
+        # Passed
+        session['logged_in'] = True
+        session['username'] = username
+        flash('You are now logged in', 'success')
+        return redirect(url_for('index'))
+      else:
+        error = 'Invalid Login'
+        return render_template('login.html', error = error)
+      #close connection
+      cur.close()
+
+    else:
+      error = 'Username not found'
+      return render_template('login.html', error = error)
+
+  return render_template('login.html')
+
+# Check if user logged in
+def is_logged_in(f):
+  @wraps(f)
+  def wrap(*args, **kwargs):
+    if 'logged_in' in session:
+      return f(*args, **kwargs)
+    else:
+      flash('Unauthorized, please login', 'danger')
+      return redirect(url_for('login'))
+  return wrap
+
+# logout
+@app.route('/logout')
+@is_logged_in 
+def logout():
+  session.clear()
+  flash('You are now logged out', 'success')
+  return redirect(url_for('login'))
+
 
 
 # initialize variables
@@ -160,17 +232,15 @@ def solve(board, courses, k):
 
 @app.route('/generate', methods=['GET'])
 def generate():
-
     started = time.time()
     create_board(len(courses))
     solve(board, courses, k)
-    print(result)
+    print_board()
     print("Solution Found: ", solve(board, courses, k))
     completed = time.time()
     print("Time Taken: ", completed - started)
     toCSV = result
     keys = toCSV[0].keys()
-    print(keys)
     with open('schedule.csv', 'w', newline='')  as output_file:
         dict_writer = csv.DictWriter(output_file, keys)
         dict_writer.writeheader()
@@ -179,4 +249,5 @@ def generate():
 
 
 if __name__ == '__main__':
+    app.secret_key = 'secret123'
     app.run(debug=True)
