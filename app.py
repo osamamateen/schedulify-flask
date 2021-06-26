@@ -160,15 +160,17 @@ def solve(board, courses, k):
 
 @app.route('/generate', methods=['GET'])
 def generate():
+
     started = time.time()
     create_board(len(courses))
     solve(board, courses, k)
-    print_board()
+    print(result)
     print("Solution Found: ", solve(board, courses, k))
     completed = time.time()
     print("Time Taken: ", completed - started)
     toCSV = result
     keys = toCSV[0].keys()
+    print(keys)
     with open('schedule.csv', 'w', newline='')  as output_file:
         dict_writer = csv.DictWriter(output_file, keys)
         dict_writer.writeheader()
