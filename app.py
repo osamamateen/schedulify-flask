@@ -59,6 +59,44 @@ for row in reader:
 # courses data by faculty name
 courses = sorted(coursesData, key=lambda x: (coursesData[x]['faculty']))
 
+# Register form class
+class RegisterForm(Form):
+  name = StringField('Name', validators=[validators.input_required(), validators.Length(min=1, max=50)])
+  username = StringField('Username', validators=[validators.input_required(), validators.Length(min=4, max=25)])
+  email = StringField('Email', validators=[validators.input_required(), validators.Length(min=6, max=50)])
+  password = PasswordField('Password', validators=[
+    validators.input_required(),
+    validators.EqualTo('confirm', message='Passwords do not match')
+  ])
+  confirm = PasswordField('Confirm Password')
+
+
+# User Register
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+  form = RegisterForm(request.form)
+  if request.method == 'POST' and form.validate():
+    name = form.name.data
+    email = form.email.data
+    username = form.username.data
+    password = sha256_crypt.encrypt(str(form.password.data))
+
+    #create cursor
+    cur = mysql.connection.cursor()
+
+    cur.execute("INSERT INTO users(name, email, username, password) VALUES(%s, %s, %s, %s)", (name, email, username, password))
+
+    #commit to DB
+    mysql.connection.commit()
+
+    #close connection
+    cur.close()
+
+    flash('You are now registered and can log in', 'success')
+
+    return redirect(url_for('login'))
+  return render_template('register.html', form = form)
+
 # user login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
