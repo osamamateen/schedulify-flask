@@ -1,0 +1,485 @@
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+here
+None
+((1, 1, '123456', 'Wireless', 8, 3, 2, None, None, 0, 1, 'Saim Gill', 'saimgill34@gmail.com', 'abc', '$5$rounds=80000$ZxgJ5DQCLNzpTgP4$ATtToKGSCx0eK0j3loCcoOVLn5fA2upGkZCZbaBVti4', None, 1, 0, 0, 'saim'), (2, 1, '123456', 'Wireless', 1, 1, 1, None, None, 1, 1, 'Saim Gill', 'saimgill34@gmail.com', 'abc', '$5$rounds=80000$ZxgJ5DQCLNzpTgP4$ATtToKGSCx0eK0j3loCcoOVLn5fA2upGkZCZbaBVti4', None, 1, 0, 0, 'saim'))
+127.0.0.1 - - [17/Jul/2021 20:48:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 20:48:19] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 20:48:19] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 20:48:19] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 20:48:19] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 20:48:19] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 20:48:20] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 20:48:20] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 20:48:20] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 20:48:20] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 20:48:21] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 20:48:24] "[36mGET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+here
+None
+((1, 1, '123456', 'Wireless', 8, 3, 2, None, None, 0, 1, 'Saim Gill', 'saimgill34@gmail.com', 'abc', '$5$rounds=80000$ZxgJ5DQCLNzpTgP4$ATtToKGSCx0eK0j3loCcoOVLn5fA2upGkZCZbaBVti4', None, 1, 0, 0, 'saim'), (2, 1, '123456', 'Wireless', 1, 1, 1, None, None, 1, 1, 'Saim Gill', 'saimgill34@gmail.com', 'abc', '$5$rounds=80000$ZxgJ5DQCLNzpTgP4$ATtToKGSCx0eK0j3loCcoOVLn5fA2upGkZCZbaBVti4', None, 1, 0, 0, 'saim'))
+127.0.0.1 - - [17/Jul/2021 20:58:19] "[35m[1mGET / HTTP/1.1[0m" 500 -
+127.0.0.1 - - [17/Jul/2021 20:58:20] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 20:58:20] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 20:58:20] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 20:58:21] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 20:58:21] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+here
+None
+((1, 1, '123456', 'Wireless', 8, 3, 2, None, None, 0, 1, 'Saim Gill', 'saimgill34@gmail.com', 'abc', '$5$rounds=80000$ZxgJ5DQCLNzpTgP4$ATtToKGSCx0eK0j3loCcoOVLn5fA2upGkZCZbaBVti4', None, 1, 0, 0, 'saim'), (2, 1, '123456', 'Wireless', 1, 1, 1, None, None, 1, 1, 'Saim Gill', 'saimgill34@gmail.com', 'abc', '$5$rounds=80000$ZxgJ5DQCLNzpTgP4$ATtToKGSCx0eK0j3loCcoOVLn5fA2upGkZCZbaBVti4', None, 1, 0, 0, 'saim'))
+127.0.0.1 - - [17/Jul/2021 21:00:28] "[35m[1mGET / HTTP/1.1[0m" 500 -
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+127.0.0.1 - - [17/Jul/2021 21:00:34] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:01:41] "[35m[1mGET / HTTP/1.1[0m" 500 -
+127.0.0.1 - - [17/Jul/2021 21:01:41] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:01:41] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:01:42] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:01:42] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:02:09] "[35m[1mGET / HTTP/1.1[0m" 500 -
+127.0.0.1 - - [17/Jul/2021 21:02:09] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:02:09] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:02:09] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:02:10] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:02:11] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:02:29] "[35m[1mGET / HTTP/1.1[0m" 500 -
+127.0.0.1 - - [17/Jul/2021 21:02:29] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:02:29] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:02:40] "[35m[1mGET / HTTP/1.1[0m" 500 -
+127.0.0.1 - - [17/Jul/2021 21:02:41] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:02:41] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:02:41] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:02:42] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:02:42] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+here
+None
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:03:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:03:06] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:06] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:06] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:06] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:06] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:06] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:07] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:07] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:07] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:07] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:07] "[36mGET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:03:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:03:59] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:59] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:59] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:59] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:59] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:59] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:59] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:59] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:59] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:03:59] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:04:00] "[36mGET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:21:59] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:21:59] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:21:59] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:21:59] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:21:59] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:21:59] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:21:59] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:21:59] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:21:59] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:21:59] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:22:01] "[36mGET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:26:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:26:52] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:26:52] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:26:52] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:26:52] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:26:52] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:26:52] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:26:52] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:26:52] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:26:52] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:26:52] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:26:52] "[36mGET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:30:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:30:41] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:30:41] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:30:41] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:30:41] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:30:41] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:30:42] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:30:42] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:30:42] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:30:42] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:30:42] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:30:44] "[36mGET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:31:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:31:50] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:31:50] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:31:50] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:31:50] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:31:50] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:31:50] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:31:50] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:31:50] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:31:50] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:31:50] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:31:51] "[36mGET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:32:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:32:03] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:03] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:03] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:03] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:03] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:03] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:03] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:03] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:03] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:03] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:04] "[36mGET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:32:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:32:45] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:45] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:45] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:45] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:45] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:45] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:45] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:45] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:45] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:45] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:45] "[36mGET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:32:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:32:55] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:55] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:55] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:55] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:55] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:55] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:55] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:55] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:55] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:32:55] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:33:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:33:04] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:33:04] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:33:04] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:33:04] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:33:04] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:33:04] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:33:04] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:33:04] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:33:04] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:33:04] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:38:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:38:21] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:38:21] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:38:21] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:38:21] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:38:21] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:38:21] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:38:21] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:38:21] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:38:21] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:38:21] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:38:22] "[36mGET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+127.0.0.1 - - [17/Jul/2021 21:41:45] "[32mGET / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [17/Jul/2021 21:41:45] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:41:46] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:46] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:46] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:46] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:46] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:46] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:46] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:46] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:46] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:46] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:46] "[36mGET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:54] "[32mPOST /login HTTP/1.1[0m" 302 -
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:41:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:41:54] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:55] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:55] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:55] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:55] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:55] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:55] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:55] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:55] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:55] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:41:55] "[36mGET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:24] "GET /register HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:25] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:42:26] "[36mGET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:43:53] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+127.0.0.1 - - [17/Jul/2021 21:43:53] "GET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:43:53] "GET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:43:54] "GET /register?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:43:54] "GET /register?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:43:54] "GET /register?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-659-341
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+127.0.0.1 - - [17/Jul/2021 21:44:39] "[32mPOST /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [17/Jul/2021 21:44:39] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:44:40] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:40] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:40] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:40] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:40] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:40] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:40] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:40] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:40] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:40] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:41] "[36mGET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:48] "POST /login HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:44:49] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:49] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:49] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:49] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:49] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:49] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:49] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:49] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:49] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:44:49] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:45:24] "[32mPOST /login HTTP/1.1[0m" 302 -
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:45:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:45:24] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:45:25] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:45:25] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:45:25] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:45:25] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:45:25] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:45:25] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:45:25] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:45:25] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:45:25] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:46:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:46:03] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:03] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:03] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:03] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:03] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:03] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:03] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:03] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:03] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:03] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:46:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:46:31] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:31] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:31] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:31] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:31] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:31] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:31] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:31] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:31] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:46:31] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+4
+127.0.0.1 - - [17/Jul/2021 21:48:04] "GET /course-request HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:48:04] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:04] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:04] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:04] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:04] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:04] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:04] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:04] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:04] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:04] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:06] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:06] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:06] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:06] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:06] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:06] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:06] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:06] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:06] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:06] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+4
+127.0.0.1 - - [17/Jul/2021 21:48:43] "POST /course-request HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:48:43] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:43] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:44] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:44] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:44] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:44] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:44] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:44] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:44] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:48:44] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+4
+127.0.0.1 - - [17/Jul/2021 21:49:31] "[32mPOST /course-request HTTP/1.1[0m" 302 -
+here
+None
+127.0.0.1 - - [17/Jul/2021 21:49:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:49:31] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:49:31] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:49:31] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:49:31] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:49:31] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:49:31] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:49:31] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:49:31] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:49:32] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:49:32] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:53:26] "GET /faculty HTTP/1.1" 200 -
+127.0.0.1 - - [17/Jul/2021 21:53:26] "[36mGET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:53:27] "[36mGET /static/css/sb-admin-2.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:53:27] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:53:27] "[36mGET /static/vendor/jquery/jquery.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:53:27] "[36mGET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:53:27] "[36mGET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:53:27] "[36mGET /static/js/sb-admin-2.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:53:27] "[36mGET /static/vendor/datatables/jquery.dataTables.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:53:27] "[36mGET /static/vendor/datatables/dataTables.bootstrap4.min.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [17/Jul/2021 21:53:27] "[36mGET /static/js/demo/datatables-demo.js HTTP/1.1[0m" 304 -
+ * Detected change in 'C:\\Users\\Saim\\OneDrive\\FYP\\schedulify-flask\\app.py', reloading
+ * Restarting with stat
