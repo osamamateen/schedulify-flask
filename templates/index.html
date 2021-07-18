@@ -6,6 +6,72 @@
 
 {% block content %}
   <div class="container">
-    <h1>Schedulify</h1>
+    <h1 class="title mt-3">Dashboard</h1>
+    
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <div class="card bg-light">
+          <div class="card-header">
+            <h4>Course Request</h4>
+          </div>
+          <div class="card-body bg-gray-100">
+            <table class="table table-bordered table-light">
+              <tr>
+              <th>Faculty Name</th>
+              <th>Course Code</th>
+              <th>Course Title</th>
+              <th>Day</th>
+              <th>Slot</th>
+              <th>Action</th>
+              </tr>
+
+              {% for row in courseRequests %}
+              <tr>
+                <td>{{ row.name }}</td>
+                <td>{{ row.course_code }}</td>
+                <td>{{ row.course_title }}</td>
+                <td>{{ row.day }}</td>
+                <td>{{ row.slot }}</td>
+                <td>
+                  <button type="button" class="btn btn-success">View</button>
+                </td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <div class="card bg-light">
+          <div class="card-header">
+            <h4>Faculty Registration Request</h4>
+          </div>
+          <div class="card-body bg-gray-100">
+            <table class="table table-bordered table-light">
+              <tr>
+                <th>Faculty Name</th>
+                <th>Faculty Email</th>
+                <th>Faculty Code</th>
+                <th>Action</th>
+              </tr>
+              
+              {% for row in userRequests%}
+              <tr>
+                <td>{{ row.name }}</td>
+                <td>{{ row.email }}</td>
+                <td>{{ row.faculty_code }}</td>
+                <td>
+                  <button type="button" class="btn btn-success">View</button>
+                </td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 {% endblock %}

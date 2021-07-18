@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Course Request - Schedulify
+{% endblock %}
+
+{% block content %}
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form action="" method="POST">
+    <div class="form-group">
+      {{render_field(form.course_code, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.course_title, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.semester, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.day, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.slot, class_="form-control")}}
+    </div>
+    <p><input type="submit" value="submit" class="btn btn-primary"></p>
+  </form>
+{% endblock %}
