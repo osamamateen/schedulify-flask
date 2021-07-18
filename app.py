@@ -82,7 +82,7 @@ class CourseRequests(db.Model):
     slot = db.Column(db.Integer)
     day = db.Column(db.Integer)
     created_at = db.Column(
-        db.DateTime, default=datetime.datetime.utcnow(), nullable=False)
+        db.DateTime, default=datetime.datetime.now(), nullable=False)
     deleted = db.Column(db.Boolean, default=0)
     approved = db.Column(db.Boolean, default=0)
 
