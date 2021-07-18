@@ -17,7 +17,9 @@ import logging
 import sys
 from sqlalchemy import create_engine
 
-engine = create_engine('mysql://root:1234@localhost/schedulify-flask')
+
+
+engine = create_engine('mysql://root:root@localhost/schedulify-flask')
 connection = engine.raw_connection()
 cursor = connection.cursor()
 
@@ -27,14 +29,16 @@ logger = logging.getLogger('werkzeug')  # grabs underlying WSGI logger
 handler = logging.FileHandler('test.log')  # creates handler for the log file
 logger.addHandler(handler)  # adds handler to the werkzeug WSGI logger
 
+app.secret_key = '1231231'
+
 # Config MySQL
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '1234'
+app.config['MYSQL_PASSWORD'] = 'root'
 app.config['MYSQL_DB'] = 'schedulify-flask'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:1234@localhost/schedulify-flask'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost/schedulify-flask'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # init MySQL
@@ -78,7 +82,7 @@ class CourseRequests(db.Model):
     slot = db.Column(db.Integer)
     day = db.Column(db.Integer)
     created_at = db.Column(
-        db.DateTime, default=datetime.datetime.utcnow, nullable=False)
+        db.DateTime, default=datetime.datetime.utcnow(), nullable=False)
     deleted = db.Column(db.Boolean, default=0)
     approved = db.Column(db.Boolean, default=0)
 
@@ -258,6 +262,8 @@ class RegisterForm(Form):
         validators.input_required(),
         validators.EqualTo('confirm', message='Passwords do not match')
     ])
+    role = SelectField('Role', choices=[('1', 'Faculty'), ('2', 'Coordinator')], validators=[validators.input_required()])
+
     confirm = PasswordField('Confirm Password')
 
 
@@ -269,15 +275,14 @@ def register():
         name = form.name.data
         email = form.email.data
         username = form.username.data
+        role = form.role.data
         password = sha256_crypt.encrypt(str(form.password.data))
 # remove this later
         faculty_code = username
-
         # create cursor
         cur = mysql.connection.cursor()
 
-        cur.execute("INSERT INTO users(name, email, username, password, faculty_code) VALUES(%s, %s, %s, %s,%s)",
-                    (name, email, username, password, faculty_code))
+        cur.execute("INSERT INTO users(name, email, username, password, role, faculty_code, deleted) VALUES(%s, %s, %s, %s, %s, %s, %s)", (name, email, username, password, role, faculty_code ,0))
 
         # commit to DB
         mysql.connection.commit()
@@ -341,7 +346,7 @@ def login():
 @is_logged_in
 def logout():
     session.clear()
-    logger.ingo("session cleared")
+    logger.info("session cleared")
     flash('You are now logged out', 'success')
     return redirect(url_for('login'))
 
@@ -350,7 +355,9 @@ def logout():
 board = []
 day1 = []
 day2 = []
-slot_len = math.ceil((len(courses)/2)/4)
+day3 = []
+day4 = []
+slot_len = math.ceil((len(courses)/4)/4)
 assigned_courses = []
 previous_courses = []
 result = []
@@ -364,9 +371,12 @@ def create_board(num_of_courses):
     for slot in range(x):
         day1.append("--")
         day2.append("--")
+        day3.append("--")
+        day4.append("--")
     board.append(day1)
     board.append(day2)
-
+    board.append(day3)
+    board.append(day4)
 
 # custom function to print the board neatly
 def print_board():
@@ -375,9 +385,7 @@ def print_board():
         for j in range(len(board[i])):
             if j % slot_len == 0 and j != 0:
                 print(" | ", end="")
-            print(board[i][j], "-", coursesData[board[i][j]]
-                  ['faculty'], "-", coursesData[board[i][j]]
-                  ['semester'], end="")
+            print(board[i][j], end="")
         print("")
 
 
@@ -436,14 +444,26 @@ def solve(board, courses, k):
             thisCourse = list(courses)[i]
             if(valid(thisCourse, row, col)):
                 board[row][col] = thisCourse
-                if(col >= 0 and col < len(board[row])/4):
-                    slot = 1
-                if(col >= len(board[row])/4 and col < len(board[row])/2):
-                    slot = 2
-                if(col >= len(board[row])/2 and col < (len(board[row]) * 3/4)):
-                    slot = 3
-                if(col >= (len(board[row]) * 3/4) and col < len(board[row])):
-                    slot = 4
+                if(row < 2):
+                    if(col >= 0 and col < len(board[row])/4):
+                        slot = 1
+                    if(col >= len(board[row])/4 and col < len(board[row])/2):
+                        slot = 2
+                    if(col >= len(board[row])/2 and col < (len(board[row]) * 3/4)):
+                        slot = 3
+                    if(col >= (len(board[row]) * 3/4) and col < len(board[row])):
+                        slot = 4
+                else:
+                    board[row][col+1] = "x"
+                    if(col >= 0 and col < len(board[row])/4):
+                        slot = 1
+                    if(col >= len(board[row])/4 and col < len(board[row])/2):
+                        slot = 1
+                    if(col >= len(board[row])/2 and col < (len(board[row]) * 3/4)):
+                        slot = 2
+                    if(col >= (len(board[row]) * 3/4) and col < len(board[row])):
+                        slot = 2 
+
                 course_detail = {
                     'course': thisCourse,
                     'faculty': coursesData[thisCourse]["faculty"],
@@ -483,5 +503,4 @@ def generate():
 
 
 if __name__ == '__main__':
-    app.secret_key = 'secret123'
     app.run(debug=True)
