@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, logging, flash
 from flask_mysqldb import MySQL
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators
+from wtforms import Form, StringField, TextAreaField, PasswordField, validators, SelectField
 from passlib.hash import sha256_crypt
 from functools import wraps
 import math
@@ -64,6 +64,7 @@ class RegisterForm(Form):
   name = StringField('Name', validators=[validators.input_required(), validators.Length(min=1, max=50)])
   username = StringField('Username', validators=[validators.input_required(), validators.Length(min=4, max=25)])
   email = StringField('Email', validators=[validators.input_required(), validators.Length(min=6, max=50)])
+  role = SelectField('Role', choices=[('1', 'Faculty'), ('2', 'Coordinator')], validators=[validators.input_required()])
   password = PasswordField('Password', validators=[
     validators.input_required(),
     validators.EqualTo('confirm', message='Passwords do not match')
@@ -79,12 +80,15 @@ def register():
     name = form.name.data
     email = form.email.data
     username = form.username.data
+    role = form.role.data
+    status = False
+    deleted = False
     password = sha256_crypt.encrypt(str(form.password.data))
 
     #create cursor
     cur = mysql.connection.cursor()
 
-    cur.execute("INSERT INTO users(name, email, username, password) VALUES(%s, %s, %s, %s)", (name, email, username, password))
+    cur.execute("INSERT INTO users(name, email, username, password, role, status, deleted) VALUES(%s, %s, %s, %s, %s, %s, %s)", (name, email, username, password, role, status, deleted))
 
     #commit to DB
     mysql.connection.commit()
