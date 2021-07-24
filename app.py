@@ -114,9 +114,25 @@ def is_logged_in(f):
     return wrap
 
 
+def is_logged_in_index(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return f(*args, **kwargs)
+        else:
+            return redirect(url_for('login'))
+    return wrap
+
+
 @app.route('/')
-@is_logged_in
+@is_logged_in_index
 def index():
+    return redirect(url_for('dashboard'))
+
+
+@app.route('/dashboard')
+@is_logged_in
+def dashboard():
     userRequests = Users.query.filter(Users.status != False).all()
 
     # cur = mysql.connection.cursor()
@@ -128,6 +144,10 @@ def index():
 
     course_requests = CourseRequests.query.filter(
         (CourseRequests.approved == 0) & (CourseRequests.deleted == 0)).all()
+
+    user_id = session['id']
+    user_course_requests = CourseRequests.query.filter(
+        (CourseRequests.approved == 0) & (CourseRequests.deleted == 0) & (CourseRequests.user_id == user_id)).all()
 
     # courseRequests = cur.execute(
     #     "SELECT * FROM course_requests LEFT JOIN users ON course_requests.user_id = users.id")
@@ -145,7 +165,10 @@ def index():
 
     # print("You are in index")
 
-    return render_template('index.html', userRequests=userRequests, courseRequests=course_requests)
+    if session['role'] != '2':
+        return render_template('faculty-dashboard.html', courseRequests=user_course_requests)
+    else:
+        return render_template('admin-dashboard.html', userRequests=userRequests, courseRequests=course_requests)
 
 
 @app.route('/delete-course/<id>', methods=['GET', 'POST'])

@@ -1,0 +1,55 @@
+{% extends 'layout.html'%} {% block title %} Schedulify {% endblock %} 
+{% block content %}
+  <div class="container-fluid">
+    <h1 class="title d-inline">Dashboard</h1>
+    <a href="/course-requests" type="button" class="btn btn-success d-inline float-right mt-3 mr-5">Make a Request</a>
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <div class="card bg-light">
+          <div class="card-header">
+            <h4 class="d-inline">Your Course Requests</h4>
+          </div>
+          <div class="card-body bg-gray-100">            
+            <div class="table-responsive">
+              <table 
+                class="table table-bordered table-light"
+                id="dataTable"
+                width="100%"
+                cellspacing="0"
+                >
+                <thead>
+                  <tr>
+                    <!-- <th>Faculty Name</th> -->
+                    <th>Course Code</th>
+                    <th>Course Title</th>
+                    <th>Day</th>
+                    <th>Slot</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+  
+                <tbody>
+                {% for row in courseRequests %}
+                  <tr>
+                    <!-- <td>{{ row.user_name }}</td> -->
+                    <td>{{ row.course_code }}</td>
+                    <td>{{ row.course_title }}</td>
+                    <td>{{ row.day }}</td>
+                    <td>{{ row.slot }}</td>
+                    <td>
+                      <!-- <a href="/approve-course/{{ row.id }}" type="button" class="btn btn-success btn-sm" onclick="return confirm('Are you sure, you want to approve?')">Approve</a> -->
+                      <a href="/delete-course/{{ row.id }}" type="button" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure, you want to delete?')">Delete</a>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  {% endblock %}
+  
