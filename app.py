@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, logging, flash
 from flask_mysqldb import MySQL
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators, SelectField
+from wtforms import Form, StringField, TextAreaField, PasswordField, validators, SelectField, HiddenField
 from passlib.hash import sha256_crypt
 from functools import wraps
 import math
@@ -11,17 +11,17 @@ from os.path import join, dirname, realpath
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
 from sqlalchemy import ForeignKey
-import datetime
+from datetime import datetime
 from pprint import pprint
 import logging
 import sys
 from sqlalchemy import create_engine
+import mysql.connector
 
 
-
-engine = create_engine('mysql://root:root@localhost/schedulify-flask')
-connection = engine.raw_connection()
-cursor = connection.cursor()
+# engine = create_engine('mysql://root:root@localhost/schedulify-flask')
+# connection = engine.raw_connection()
+# cursor = connection.cursor()
 
 app = Flask(__name__)
 
@@ -32,22 +32,22 @@ logger.addHandler(handler)  # adds handler to the werkzeug WSGI logger
 app.secret_key = '1231231'
 
 # Config MySQL
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'root'
-app.config['MYSQL_DB'] = 'schedulify-flask'
-app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+# app.config['MYSQL_HOST'] = 'localhost'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = '1234'
+# app.config['MYSQL_DB'] = 'schedulify-flask'
+# app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost/schedulify-flask'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234@localhost/schedulify-flask'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # init MySQL
-mysql = MySQL(app)
+# mysql = MySQL(app)
 db = SQLAlchemy(app)
 
 
 class Users(db.Model):
-    __tablename__ = "users"
+    # __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
@@ -55,12 +55,12 @@ class Users(db.Model):
     faculty_code = db.Column(db.String(30), nullable=False, unique=True)
     password = db.Column(db.String(255))
     register_date = db.Column(db.DateTime)
-    role = db.Column(db.Boolean, nullable=False)
-    status = db.Column(db.Boolean, default=0)
-    deleted = db.Column(db.Boolean, default=0)
-    username = db.Column(db.String(255), nullable=False)
+    role = db.Column(db.String(1), nullable=False)
+    status = db.Column(db.Boolean, default=False)
+    deleted = db.Column(db.Boolean, default=False)
 
-    def __init__(self, name, email, faculty_code, password, register_date, role, status, deleted):
+    def __init__(self, name, email, faculty_code, password, register_date, role, status, deleted, **kwargs):
+        super(Users, self).__init__(**kwargs)
         self.name = name
         self.email = email
         self.faculty_code = faculty_code
@@ -72,31 +72,33 @@ class Users(db.Model):
 
 
 class CourseRequests(db.Model):
-    __tablename__ = "course_requests"
+    # __tablename__ = "course_requests"
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    user_name = db.Column(db.String(255), nullable=False)
     course_code = db.Column(db.String(255), nullable=False)
     course_title = db.Column(db.String(255))
     semester = db.Column(db.Integer)
     slot = db.Column(db.Integer)
     day = db.Column(db.Integer)
     created_at = db.Column(
-        db.DateTime, default=datetime.datetime.now(), nullable=False)
+        db.DateTime, nullable=False)
     deleted = db.Column(db.Boolean, default=0)
     approved = db.Column(db.Boolean, default=0)
 
-    def __init__(self, name, email, course_code, course_title, semester, slot, day, created_at, approved, deleted):
-        self.name = name
-        self.email = email
+    def __init__(self, user_id, user_name, course_code, course_title, semester, slot, day, created_at, deleted, approved, **kwargs):
+        super(CourseRequests, self).__init__(**kwargs)
+        self.user_id = user_id
+        self.user_name = user_name
         self.course_code = course_code
         self.course_title = course_title
         self.semester = semester
         self.slot = slot
         self.day = day
         self.created_at = created_at
-        self.approved = approved
         self.deleted = deleted
+        self.approved = approved
 
 # Check if user logged in
 
@@ -115,47 +117,79 @@ def is_logged_in(f):
 @app.route('/')
 @is_logged_in
 def index():
-    userRequests = Users.query.filter_by(status=0).all()
+    userRequests = Users.query.filter(Users.status != False).all()
 
-    cur = mysql.connection.cursor()
+    # cur = mysql.connection.cursor()
 
     # cursor.execute("SELECT * FROM users WHERE status = 0")
 
     # userRequests = cursor.fetchall()
     # commit to DB
 
-    # CourseRequests = CourseRequests.query.join(
-    #     Users).filter(CourseRequests.user_id == Users.id).all()
+    course_requests = CourseRequests.query.filter(
+        (CourseRequests.approved == 0) & (CourseRequests.deleted == 0)).all()
 
-    courseRequests = cur.execute(
-        "SELECT * FROM course_requests LEFT JOIN users ON course_requests.user_id = users.id")
+    # courseRequests = cur.execute(
+    #     "SELECT * FROM course_requests LEFT JOIN users ON course_requests.user_id = users.id")
 
-    courseRequests = cur.fetchall()
+    # courseRequests = cur.fetchall()
     # courseRequests = ["hello"]
 
-    mysql.connection.commit()
+    # mysql.connection.commit()
     # close connection
     # cursor.close()
 
     logger.info("here")
-    logger.info(print(courseRequests))
+    logger.info(print(course_requests))
     # logger.info(courseRequests)
 
     # print("You are in index")
 
-    return render_template('index.html', userRequests=userRequests, courseRequests=courseRequests)
+    return render_template('index.html', userRequests=userRequests, courseRequests=course_requests)
 
 
-@app.route('/faculty', methods=['GET', 'POST'])
-def faculty():
+@app.route('/delete-course/<id>', methods=['GET', 'POST'])
+@is_logged_in
+def deleteCourse(id):
+    delete_course = CourseRequests.query.get(id)
+    delete_course.deleted = 1
+    db.session.commit()
+
+    flash('Course Request Deleted Successfully')
+
+    return redirect(url_for('courseRequest'))
+
+
+@app.route('/approve-course/<id>', methods=['GET', 'POST'])
+@is_logged_in
+def approveCourse(id):
+    approve_course = CourseRequests.query.get(id)
+    approve_course.approved = 1
+    db.session.commit()
+
+    flash('Course Request Approved Successfully')
+
+    return redirect(url_for('courseRequest'))
+
+
+@app.route('/disapprove-course/<id>', methods=['GET', 'POST'])
+@is_logged_in
+def disapproveCourse(id):
+    disapprove_course = CourseRequests.query.get(id)
+    disapprove_course.approved = 0
+    db.session.commit()
+
+    flash('Course Request Disapproved Successfully')
+
+    return redirect(url_for('courseRequest'))
+
+
+@app.route('/faculty-listing', methods=['GET', 'POST'])
+def facultyListing():
     faculty = Users.query.all()
 
     return render_template('faculty-listing.html', faculty=faculty)
 
-
-# @app.route('faculty/insert', methods=['POST'])
-# def insertFaculty():
-#     if request.method == 'POST':
 
 class courseRequestForm(Form):
     course_code = StringField('Course Code', validators=[
@@ -164,51 +198,77 @@ class courseRequestForm(Form):
         validators.Length(min=4, max=25)])
     semester = SelectField(u'Semester', choices=[(1, 'First'), (2, 'Second'), (3, 'Third'), (
         4, 'Fourth'), (5, 'Fifth'), (6, 'Sixth'), (7, 'Seventh'), (8, 'Eighth')])
-    # semester = StringField('Semester', validators=[
-    # validators.input_required(), validators.Length(min=1, max=1)])
     day = SelectField(u'Day', choices=[(1, 'Mon-Wed'), (2, 'Tue-Thu'), (3, 'Sat'), (
         4, 'Sun')])
-    # day = StringField('Day', validators=[
-    #     validators.input_required(), validators.Length(min=1, max=1)])
     slot = SelectField(u'Slot', choices=[(1, 'First'), (2, 'Second'), (3, 'Third'), (
         4, 'Fourth')])
-    # slot = StringField('Slot', validators=[
-    #     validators.Length(min=1, max=1)])
+    approved = HiddenField()
+
+# def is_admin(f):
+#     @wraps(f)
+#     def wrap(*args, **kwargs):
+#         if session['role'] == 2:
+#             return f(*args, **kwargs)
+#         else:
+#             flash('Unauthorized, please login', 'danger')
+#             return redirect(url_for('login'))
+#     return wrap
 
 
-@app.route('/course-request', methods=['GET', 'POST'])
+@app.route('/course-requests', methods=['GET', 'POST'])
+@is_logged_in
 def courseRequest():
-    logger.info(session['id'])
+    # course_requests = CourseRequests.query.all()
+
+    approved_requests = CourseRequests.query.filter(
+        (CourseRequests.approved == 1) & (CourseRequests.deleted == 0)).all()
+
+    course_requests = CourseRequests.query.filter(
+        (CourseRequests.approved == 0) & (CourseRequests.deleted == 0)).all()
+
     form = courseRequestForm(request.form)
     if request.method == 'POST' and form.validate():
+
+        user_id = session['id']
+        user_name = session['name']
         course_code = form.course_code.data
         course_title = form.course_title.data
         semester = form.semester.data
-        day = form.day.data
         slot = form.slot.data
-        user_id = session['id']
+        day = form.day.data
+        created_at = 'dummy-date'
+        deleted = 0
+
+        if session['role'] == '2':
+            approved = 1
+        else:
+            approved = 0
+
+        course_request = CourseRequests(
+            user_id, user_name, course_code, course_title, semester, slot, day, created_at, deleted, approved)
+        db.session.add(course_request)
+        db.session.commit()
 
         # create cursor
-        cur = mysql.connection.cursor()
+        # cur = mysql.connection.cursor()
 
-        cur.execute("INSERT INTO course_requests(user_id, course_code, course_title, semester, day, slot) VALUES(%s,%s, %s, %s, %s,%s)",
-                    (user_id, course_code, course_title, semester, day, slot))
+        # cur.execute("INSERT INTO course_requests(user_id, course_code, course_title, semester, day, slot) VALUES(%s,%s, %s, %s, %s,%s)",
+        #             (user_id, course_code, course_title, semester, day, slot))
 
-        # commit to DB
-        mysql.connection.commit()
+        # # commit to DB
+        # mysql.connection.commit()
 
-        # close connection
-        cur.close()
+        # # close connection
+        # cur.close()
 
         flash('Your request has been submitted.', 'success')
 
         return redirect(url_for('index'))
-    return render_template('course-request.html', form=form)
 
-
-# @app.route('/course-request-listing', methods=['GET', 'POST'])
-# def courseRequestListing():
-#     courseRequests = CourseRequests.query.all()
+    if session['role'] == '2':
+        return render_template('course-request-listing.html', form=form, courseRequests=course_requests, approvedRequests=approved_requests)
+    else:
+        return render_template('course-request.html', form=form, courseRequests=course_requests)
 
 
 @app.route('/scheduler', methods=['GET', 'POST'])
@@ -254,16 +314,16 @@ courses = sorted(coursesData, key=lambda x: (coursesData[x]['faculty']))
 class RegisterForm(Form):
     name = StringField('Name', validators=[
                        validators.input_required(), validators.Length(min=1, max=50)])
-    username = StringField('Username', validators=[
-                           validators.input_required(), validators.Length(min=4, max=25)])
+    faculty_code = StringField('Faculty Code', validators=[
+        validators.input_required(), validators.Length(min=4, max=25)])
     email = StringField('Email', validators=[
                         validators.input_required(), validators.Length(min=6, max=50)])
     password = PasswordField('Password', validators=[
         validators.input_required(),
         validators.EqualTo('confirm', message='Passwords do not match')
     ])
-    role = SelectField('Role', choices=[('1', 'Faculty'), ('2', 'Coordinator')], validators=[validators.input_required()])
-
+    role = SelectField('Role', choices=[(
+        1, 'Faculty'), (2, 'Coordinator')], validators=[validators.input_required()])
     confirm = PasswordField('Confirm Password')
 
 
@@ -274,21 +334,31 @@ def register():
     if request.method == 'POST' and form.validate():
         name = form.name.data
         email = form.email.data
-        username = form.username.data
-        role = form.role.data
+        faculty_code = form.faculty_code.data
         password = sha256_crypt.encrypt(str(form.password.data))
+        register_date = 'dummy-date'
+        role = form.role.data
+        status = 0
+        deleted = 0
 # remove this later
-        faculty_code = username
+        # status = 0
+
+        register_data = Users(name, email, faculty_code, password, register_date, role,
+                              status, deleted)
+        db.session.add(register_data)
+        db.session.commit()
         # create cursor
-        cur = mysql.connection.cursor()
 
-        cur.execute("INSERT INTO users(name, email, username, password, role, faculty_code, deleted) VALUES(%s, %s, %s, %s, %s, %s, %s)", (name, email, username, password, role, faculty_code ,0))
+        # cur = mysql.connection.cursor()
 
-        # commit to DB
-        mysql.connection.commit()
+        # cur.execute("INSERT INTO users(name, email, username, password, role, faculty_code, deleted, status, register_date) VALUES(%s, %s, %s, %s, %s, %s, %s)",
+        #             (name, email, username, password, role, faculty_code, 0))
 
-        # close connection
-        cur.close()
+        # # commit to DB
+        # mysql.connection.commit()
+
+        # # close connection
+        # cur.close()
 
         flash('You are now registered and can log in', 'success')
 
@@ -302,27 +372,38 @@ def register():
 def login():
     if request.method == 'POST':
         # get form fields
-        username = request.form['username']
+        email = request.form['email']
         password_candidate = request.form['password']
 
         # create a cursor
-        cur = mysql.connection.cursor()
+        # cur = mysql.connection.cursor()
 
-        # get user by username
-        result = cur.execute(
-            "SELECT * FROM users WHERE username = %s", [username])
+        # get user by email
+        # result = cur.execute(
+        #     "SELECT * FROM users WHERE email = %s", [email])
 
-        if result > 0:
+        result = Users.query.filter(Users.email == email).first()
+
+        # logger.info(print(result))
+
+        if result:
+
+            # data = result._asdict()
+
             # get stored hash
-            data = cur.fetchone()
-            password = data['password']
+            # data = query.fetchone()
+            password = result.password
 
             # compare passwords
             if sha256_crypt.verify(password_candidate, password):
                 # Passed
                 session['logged_in'] = True
-                session['username'] = username
-                session['id'] = data['id']
+                session['email'] = email
+                session['id'] = result.id
+                session['name'] = result.name
+                session['role'] = result.role
+
+                print(session['name'])
 
                 flash('You are now logged in', 'success')
                 return redirect(url_for('index'))
@@ -330,10 +411,10 @@ def login():
                 error = 'Invalid Login'
                 return render_template('login.html', error=error)
             # close connection
-            cur.close()
+            # cur.close()
 
         else:
-            error = 'Username not found'
+            error = 'Email not found'
             return render_template('login.html', error=error)
 
     return render_template('login.html')
@@ -379,6 +460,8 @@ def create_board(num_of_courses):
     board.append(day4)
 
 # custom function to print the board neatly
+
+
 def print_board():
     for i in range(len(board)):
         print("Day", i, end="       | ")
@@ -462,7 +545,7 @@ def solve(board, courses, k):
                     if(col >= len(board[row])/2 and col < (len(board[row]) * 3/4)):
                         slot = 2
                     if(col >= (len(board[row]) * 3/4) and col < len(board[row])):
-                        slot = 2 
+                        slot = 2
 
                 course_detail = {
                     'course': thisCourse,

@@ -1,0 +1,135 @@
+{% extends 'layout.html'%}
+
+{% block title %}
+  Schedulify
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="title d-inline">Course Requests</h1>
+    <button type="button" class="btn btn-success d-inline float-right mt-3 mr-5" data-toggle="modal" data-target="#modalAdd">Add Request</button>
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <div class="card bg-light">
+          <div class="card-body bg-gray-100">            
+            <div class="table-responsive">
+              <table 
+                class="table table-hover"
+                id="dataTable"
+                width="100%"
+                cellspacing="0"
+                >
+                <thead>
+                  <tr>
+                    <th>Faculty Name</th>
+                    <th>Course Code</th>
+                    <th>Course Title</th>
+                    <th>Day</th>
+                    <th>Slot</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+  
+                <tbody>
+                {% for row in courseRequests %}
+                  <tr>
+                    <td>{{ row.user_name }}</td>
+                    <td>{{ row.course_code }}</td>
+                    <td>{{ row.course_title }}</td>
+                    <td>{{ row.day }}</td>
+                    <td>{{ row.slot }}</td>
+                    <td>
+                      <a href="/approve-course/{{ row.id }}" type="button" class="btn btn-success btn-sm" onclick="return confirm('Are you sure, you want to approve?')">Approve</a>
+                      <a href="/delete-course/{{ row.id }}" type="button" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure, you want to delete?')">Delete</a>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mt-3">
+        <div class="card bg-light">
+          <div class="card-body bg-gray-100">            
+            <div class="table-responsive">
+              <table 
+                class="table table-hover"
+                id="dataTable"
+                width="100%"
+                cellspacing="0"
+                >
+                <thead>
+                  <h4 class="mb-3">Approved Course Requests</h4>
+                  <tr>
+                    <th>Faculty Name</th>
+                    <th>Course Code</th>
+                    <th>Course Title</th>
+                    <th>Day</th>
+                    <th>Slot</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+  
+                <tbody>
+                {% for row in approvedRequests %}
+                  <tr>
+                    <td>{{ row.user_name }}</td>
+                    <td>{{ row.course_code }}</td>
+                    <td>{{ row.course_title }}</td>
+                    <td>{{ row.day }}</td>
+                    <td>{{ row.slot }}</td>
+                    <td>
+                      <a href="/disapprove-course/{{ row.id }}" type="button" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure, you want to disapprove?')">Disapprove</a>
+                      <!-- <a href="/delete-course/{{ row.id }}" type="button" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure, you want to delete?')">Delete</a> -->
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Add Modal -->
+      <div class="modal fade" id="modalAdd" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addModal">Add Request</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">x</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              {% from "includes/_formhelpers.html" import render_field %}
+              <form action="" method="POST">
+                <div class="form-group">
+                  {{render_field(form.course_code, class_="form-control")}}
+                </div>
+                <div class="form-group">
+                  {{render_field(form.course_title, class_="form-control")}}
+                </div>
+                <div class="form-group">
+                  {{render_field(form.semester, class_="form-control")}}
+                </div>
+                <div class="form-group">
+                  {{render_field(form.day, class_="form-control")}}
+                </div>
+                <div class="form-group">
+                  {{render_field(form.slot, class_="form-control")}}
+                </div>
+                <p><input type="submit" value="submit" class="btn btn-primary"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+{% endblock %}
