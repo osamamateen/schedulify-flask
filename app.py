@@ -157,7 +157,7 @@ def deleteCourse(id):
 
     flash('Course Request Deleted Successfully')
 
-    return redirect(url_for('courseRequest'))
+    return redirect(request.referrer)
 
 
 @app.route('/approve-course/<id>', methods=['GET', 'POST'])
@@ -169,7 +169,7 @@ def approveCourse(id):
 
     flash('Course Request Approved Successfully')
 
-    return redirect(url_for('courseRequest'))
+    return redirect(request.referrer)
 
 
 @app.route('/disapprove-course/<id>', methods=['GET', 'POST'])
@@ -181,7 +181,7 @@ def disapproveCourse(id):
 
     flash('Course Request Disapproved Successfully')
 
-    return redirect(url_for('courseRequest'))
+    return redirect(request.referrer)
 
 
 @app.route('/faculty-listing', methods=['GET', 'POST'])
