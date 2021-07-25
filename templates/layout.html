@@ -54,7 +54,7 @@
           <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
           </div>
-          <div class="sidebar-brand-text mx-3">Schedulify {{ session.role }}</div>
+          <div class="sidebar-brand-text mx-3">Schedulify</div>
         </a>
 
         <!-- Divider -->
@@ -63,7 +63,7 @@
         {% if session.logged_in %}
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-          <a class="nav-link" href="/">
+          <a class="nav-link" href="/dashboard">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a
           >
@@ -74,7 +74,7 @@
 
         <!-- Nav Item - Tables -->
         <li class="nav-item active">
-          <a class="nav-link" href="/">
+          <a class="nav-link" href="/scheduler">
             <i class="fas fa-fw fa-table"></i>
             <span>Scheduler</span></a
           >
@@ -84,7 +84,7 @@
         <hr class="sidebar-divider" />
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-          <a class="nav-link" href="/">
+          <a class="nav-link" href="/logout">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Logout</span></a
           >
@@ -92,7 +92,7 @@
         {% else %}
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-          <a class="nav-link" href="/">
+          <a class="nav-link" href="/login">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Login</span></a
           >
