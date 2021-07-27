@@ -1,7 +1,17 @@
 {% extends 'layout.html'%} {% block title %} Schedulify {% endblock %} 
+{% set active_page = 'dashboard' %}
+
 {% block content %}
   <div class="container-fluid">
     <h1 class="title d-inline">Dashboard</h1>
+    {% if session['status'] == False %}
+      <div class="mt-3">
+        <h4>Your account is not active yet. Please wait for the coordinator's approval.</h4>    
+        <h6>If you think it's a mistake please contact an IT Admin.</h6>
+      </div>
+    
+    {% else %} 
+    
     <a href="/course-requests" type="button" class="btn btn-success d-inline float-right mt-3 mr-5">Make a Request</a>
     <div class="row mt-3">
       <div class="col-md-12">
@@ -49,6 +59,8 @@
         </div>
       </div>
     </div>
+
+    {% endif %}
 
   </div>
   {% endblock %}

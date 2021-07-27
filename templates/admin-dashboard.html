@@ -1,5 +1,7 @@
-{% extends 'layout.html'%} {% block title %} Schedulify {% endblock %} {% block
-content %}
+{% extends 'layout.html'%} {% block title %} Schedulify {% endblock %} 
+{% set active_page = 'dashboard' %}
+
+{% block content %}
 <div class="container-fluid">
   <h1 class="title">Dashboard</h1>
 
@@ -26,13 +28,18 @@ content %}
               </thead>
 
               <tbody>
-                {% for row in userRequests%}
+                {% if userRequests|length < 1 %
+                  <td >No user requests</td>
+                {% endif %}
+
+                {% for row in userRequests %}
                 <tr>
                   <td>{{ row.name }}</td>
                   <td>{{ row.email }}</td>
                   <td>{{ row.faculty_code }}</td>
                   <td>
-                    <button type="button" class="btn btn-success">View</button>
+                    <a href="/approve-faculty/{{ row.id }}" type="button" onclick="return confirm('Are you sure, you want to approve?')" class="btn btn-sm btn-success">Approve</a>
+                    <a href="/delete-faculty/{{ row.id }}"type="button" onclick="return confirm('Are you sure, you want to delete?')" class="btn btn-sm btn-danger">Delete</a>
                   </td>
                 </tr>
                 {% endfor %}

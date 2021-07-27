@@ -133,7 +133,7 @@ def index():
 @app.route('/dashboard')
 @is_logged_in
 def dashboard():
-    userRequests = Users.query.filter(Users.status != False).all()
+    userRequests = Users.query.filter(Users.status == 0).all()
 
     # cur = mysql.connection.cursor()
 
@@ -203,6 +203,30 @@ def disapproveCourse(id):
     db.session.commit()
 
     flash('Course Request Disapproved Successfully')
+
+    return redirect(request.referrer)
+
+
+@app.route('/delete-faculty/<id>', methods=['GET', 'POST'])
+@is_logged_in
+def deleteFaculty(id):
+    delete_faculty = Users.query.get(id)
+    delete_faculty.deleted = 1
+    db.session.commit()
+
+    flash('Faculty Request Deleted Successfully', 'success')
+
+    return redirect(request.referrer)
+
+
+@app.route('/approve-faculty/<id>', methods=['GET', 'POST'])
+@is_logged_in
+def approveFaculty(id):
+    approve_faculty = Users.query.get(id)
+    approve_faculty.status = 1
+    db.session.commit()
+
+    flash('Faculty Request Approved Successfully', 'success')
 
     return redirect(request.referrer)
 
@@ -425,6 +449,7 @@ def login():
                 session['id'] = result.id
                 session['name'] = result.name
                 session['role'] = result.role
+                session['status'] = result.status
 
                 print(session['name'])
 

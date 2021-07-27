@@ -1,4 +1,5 @@
 {% extends 'layout.html'%}
+{% set active_page = 'faculty' %}
 
 {% block title %}
   Schedulify
@@ -29,7 +30,7 @@
                 </thead>
   
                 <tbody>
-                  {% for row in userRequests%}
+                  {% for row in faculty%}
                   <tr>
                     <td>{{ row.name }}</td>
                     <td>{{ row.email }}</td>
