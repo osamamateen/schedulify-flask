@@ -142,8 +142,11 @@ def dashboard():
     # userRequests = cursor.fetchall()
     # commit to DB
 
+    # course_requests = CourseRequests.query.filter(
+    #     (CourseRequests.approved == 0) & (CourseRequests.deleted == 0)).all()
+
     course_requests = CourseRequests.query.filter(
-        (CourseRequests.approved == 0) & (CourseRequests.deleted == 0)).all()
+        (CourseRequests.deleted != 1) & (CourseRequests.approved == 0)).all()
 
     user_id = session['id']
     user_course_requests = CourseRequests.query.filter(

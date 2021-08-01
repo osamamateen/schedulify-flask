@@ -7,7 +7,7 @@
 
   <div class="row mt-3">
     <div class="col-md-12">
-      <div class="card bg-light">
+      <div class="card bg-light shadow">
         <div class="card-header">
           <h4>Faculty Registration Request</h4>
         </div>
@@ -28,7 +28,7 @@
               </thead>
 
               <tbody>
-                {% if userRequests|length < 1 %
+                {% if userRequests|length < 1 %}
                   <td >No user requests</td>
                 {% endif %}
 
@@ -51,9 +51,9 @@
     </div>
   </div>
 
-  <div class="row mt-3">
+  <div class="row mt-3 mb-3">
     <div class="col-md-12">
-      <div class="card bg-light">
+      <div class="card bg-light shadow">
         <div class="card-header">
           <h4>Course Request</h4>
         </div>
