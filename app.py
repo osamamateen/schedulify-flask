@@ -19,9 +19,9 @@ from sqlalchemy import create_engine
 
 
 
-engine = create_engine('mysql://root:root@localhost/schedulify-flask')
-connection = engine.raw_connection()
-cursor = connection.cursor()
+# engine = create_engine('mysql://root:@localhost/schedulify-flask')
+# connection = engine.raw_connection()
+# cursor = connection.cursor()
 
 app = Flask(__name__)
 
@@ -34,11 +34,11 @@ app.secret_key = '1231231'
 # Config MySQL
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'schedulify-flask'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost/schedulify-flask'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/schedulify-flask'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # init MySQL
