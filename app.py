@@ -134,7 +134,10 @@ def index():
 @is_logged_in
 def dashboard():
     userRequests = Users.query.filter(Users.status == 0).all()
-
+    
+    activeFaculty = Users.query.filter(Users.status == 1).all()
+    activeFaculty = len(activeFaculty)
+    
     # cur = mysql.connection.cursor()
 
     # cursor.execute("SELECT * FROM users WHERE status = 0")
@@ -171,7 +174,7 @@ def dashboard():
     if session['role'] != '2':
         return render_template('faculty-dashboard.html', courseRequests=user_course_requests)
     else:
-        return render_template('admin-dashboard.html', userRequests=userRequests, courseRequests=course_requests)
+        return render_template('admin-dashboard.html', activeFaculty=activeFaculty, userRequests=userRequests, courseRequests=course_requests)
 
 
 @app.route('/delete-course/<id>', methods=['GET', 'POST'])
@@ -214,7 +217,8 @@ def disapproveCourse(id):
 @is_logged_in
 def deleteFaculty(id):
     delete_faculty = Users.query.get(id)
-    delete_faculty.deleted = 1
+    # delete_faculty.deleted = 1
+    db.session.delete(delete_faculty)
     db.session.commit()
 
     flash('Faculty Request Deleted Successfully', 'success')
@@ -236,8 +240,8 @@ def approveFaculty(id):
 
 @app.route('/faculty-listing', methods=['GET', 'POST'])
 def facultyListing():
-    faculty = Users.query.all()
-
+    faculty = Users.query.filter((Users.status == 1) & (
+        Users.deleted == 0) & (Users.role == 1)).all()
     return render_template('faculty-listing.html', faculty=faculty)
 
 
