@@ -1,0 +1,174 @@
+{% extends 'layout.html'%} {% block title %} Schedulify {% endblock %} 
+{% set active_page = 'dashboard' %}
+
+{% block content %}
+<div class="container-fluid">
+  <h1 class="title">Dashboard</h1>
+
+
+    <!-- Cards Col -->
+    
+
+      <div class="row mt-3">
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-4 col-md-4 mb-4">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div
+                    class="text-xs font-weight-bold text-primary text-uppercase mb-1"
+                  >
+                    Faculty Requests
+                  </div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">
+                    {{ userRequests | length }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-4 col-md-4 mb-4">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div
+                    class="text-xs font-weight-bold text-primary text-uppercase mb-1"
+                  >
+                    Total Course Requests
+                  </div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">
+                    {{ courseRequests | length }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-4 col-md-4 mb-4">
+          <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div
+                    class="text-xs font-weight-bold text-primary text-uppercase mb-1"
+                  >
+                    Active Faculty
+                  </div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">
+                    {{ activeFaculty }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      
+    
+  
+  
+  
+    <div class="row mt-3">
+    <div class="col-md-12">
+      <div class="card bg-light shadow">
+        <div class="card-header">
+          <h4>Faculty Registration Request</h4>
+        </div>
+        <div class="card-body bg-gray-100">
+          <div class="table-responsive">
+            <table 
+            class="table table-bordered table-light"
+            width="100%"
+            cellspacing="0"
+            >
+              <thead>
+                <tr>
+                  <th>Faculty Name</th>
+                  <th>Faculty Email</th>
+                  <th>Faculty Code</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {% if userRequests|length < 1 %}
+                  <td >No user requests</td>
+                {% endif %}
+
+                {% for row in userRequests %}
+                <tr>
+                  <td>{{ row.name }}</td>
+                  <td>{{ row.email }}</td>
+                  <td>{{ row.faculty_code }}</td>
+                  <td>
+                    <a href="/approve-faculty/{{ row.id }}" type="button" onclick="return confirm('Are you sure, you want to approve?')" class="btn btn-sm btn-success">Approve</a>
+                    <a href="/delete-faculty/{{ row.id }}"type="button" onclick="return confirm('Are you sure, you want to delete?')" class="btn btn-sm btn-danger">Delete</a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3 mb-3">
+    <div class="col-md-12">
+      <div class="card bg-light shadow">
+        <div class="card-header">
+          <h4>Course Request</h4>
+        </div>
+        <div class="card-body bg-gray-100">            
+          <div class="table-responsive">
+            <table 
+              class="table table-bordered table-light"
+              width="100%"
+              cellspacing="0"
+              >
+              <thead>
+                <tr>
+                  <th>Faculty Name</th>
+                  <th>Course Code</th>
+                  <th>Course Title</th>
+                  <th>Day</th>
+                  <th>Slot</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+              {% for row in courseRequests %}
+                <tr>
+                  <td>{{ row.user_name }}</td>
+                  <td>{{ row.course_code }}</td>
+                  <td>{{ row.course_title }}</td>
+                  <td>{{ row.day }}</td>
+                  <td>{{ row.slot }}</td>
+                  <td>
+                    <a href="/approve-course/{{ row.id }}" type="button" class="btn btn-success btn-sm" onclick="return confirm('Are you sure, you want to approve?')">Approve</a>
+                    <a href="/delete-course/{{ row.id }}" type="button" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure, you want to delete?')">Delete</a>
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

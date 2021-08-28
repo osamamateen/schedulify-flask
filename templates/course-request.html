@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% set active_page = 'course-request' %}
 
 {% block title %}
   Course Request - Schedulify
@@ -6,22 +7,38 @@
 
 {% block content %}
   {% from "includes/_formhelpers.html" import render_field %}
-  <form action="" method="POST">
-    <div class="form-group">
-      {{render_field(form.course_code, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.course_title, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.semester, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.day, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.slot, class_="form-control")}}
-    </div>
-    <p><input type="submit" value="submit" class="btn btn-primary"></p>
-  </form>
+
+<div class="container-fluid">
+
+  <div class="col-md-8 mb-3 mx-auto">
+    <div class="card shadow">
+      <div class="card-header text-center">
+        <h4>Course Request</h4>
+      </div>
+      <div class="card-body">
+        <form action="" method="POST">
+          <div class="form-group">
+            {{render_field(form.course_code, class_="form-control")}}
+          </div>
+          <div class="form-group">
+            {{render_field(form.course_title, class_="form-control")}}
+          </div>
+          <div class="form-group">
+            {{render_field(form.semester, class_="form-control")}}
+          </div>
+          <div class="form-group">
+            {{render_field(form.day, class_="form-control")}}
+          </div>
+          <div class="form-group">
+            {{render_field(form.slot, class_="form-control")}}
+          </div>
+          <div class="text-center">
+            <button type="submit" value="submit" class="btn btn-primary pl-5 pr-5 mt-3">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>  
+  </div>
+
+</div>
 {% endblock %}

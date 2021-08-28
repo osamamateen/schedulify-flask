@@ -1,25 +1,31 @@
-course,faculty,semester,slot,day
-c07,Dr. Eshan,5,1,0
-c16,Dr. Mansoor,4,1,0
-c11,Dr. Eshan,2,2,0
-c09,Dr. Mansoor,4,2,0
-c13,Dr. Mansoor,1,3,0
-c05,Dr. Mubashir,3,3,0
-c14,Dr. Mansoor,2,4,0
-c06,Dr. Mubashir,4,4,0
-c15,Dr. Mansoor,3,1,1
-c065,Dr. Mubashir,4,1,1
-c165,Dr. Mansoor,4,2,1
-c10,Dr. Mubashir,3,2,1
-c051,Dr. Mubashir,3,3,1
-﻿c01,Saadia Karim,1,3,1
-c055,Dr. Mubashir,3,4,1
-c02,Saadia Karim,2,4,1
-c011,Saadia Karim,1,1,2
-c021,Saadia Karim,2,1,2
-c015,Saadia Karim,1,2,2
-c025,Saadia Karim,2,2,2
-c03,Waqar Khan,1,1,3
-c04,Waqar Khan,2,1,3
-c031,Waqar Khan,1,2,3
-c035,Waqar Khan,1,2,3
+course,title,faculty,semester,slot
+MIS527,Information Security,Asim Iftikhar,6,Monday 12:45 - 15:45
+CSC412,Artificial Intelligence,Dr. Ehsan Rehman,1,Monday 12:45 - 15:45
+CSC456,Machine Learning,Dr. Ehsan Rehman,1 4,Tuesday 09:00 - 12:00
+CSC547,Advanced Operating Systems,Dr. Ehsan Rehman,6,Tuesday 12:45 - 15:45
+MIS691,Capstone Project - I,Dr. Muhammad Mansoor Alam,5,Monday 12:45 - 15:45
+MIS692,Capstone Project - II,Dr. Muhammad Mansoor Alam,4 2,Tuesday 09:00 - 12:00
+PCS749,Seminar on Logic and Scientific Computing,Dr. Muhammad Mansoor Alam,6,Tuesday 12:45 - 15:45
+PCS743,Fuzzy Topologies with Human Centric Computing,Dr. S.M.Aqil Burney,6,Monday 12:45 - 15:45
+CSC205,Computer Architecture and Organization,Dr. Syed Mubashir Ali,3,Tuesday 09:00 - 12:00
+CSC320,Human Computer Interaction,Dr. Syed Mubashir Ali,1,Tuesday 12:45 - 15:45
+CSC549,Theory of Programming Languages,Dr. Tariq Rahim Soomro,6,Tuesday 09:00 - 12:00
+PCS701,Big Data Analytics And Knowledge Discovery,Dr. Tariq Rahim Soomro,7,Tuesday 12:45 - 15:45
+CSC213,Object Oriented Programming,Engr Asghar Khan,2,Wednesday 09:00 - 12:00
+CSC465,Data Warehousing,Khalid Bin Muhammad,2,Wednesday 09:00 - 12:00
+CSC313,Operating Systems Lab,Muhammad Ayoub Kamal,2,Wednesday 09:00 - 12:00
+CSC461,Project - I,Muhammad Ayoub Kamal,5,Wednesday 12:45 - 15:45
+CSC115,Digital Logic And Design,Muhammad Waqar Khan,4,Wednesday 09:00 - 12:00
+CSC443,Mobile Computing,Muhammad Waqar Khan,1,Wednesday 12:45 - 15:45
+CSC448,Digital Signal Processing,Muhammad Waqar Khan,3,Thursday 09:00 - 12:00
+CSC464,Wireless Network,Muhammad Waqar Khan,3,Thursday 12:45 - 15:45
+CSC467,Neural Networks,Muhammad Waqar Khan,2,Friday 09:00 - 12:00
+MIS303,Is Audit and Management,Rabab Naqvi,3,Wednesday 12:45 - 15:45
+MIS416,Information Technology - II,Rabab Naqvi,2,Thursday 09:00 - 12:00
+BDS301,Data Mining - I,Saadia Karim,3,Wednesday 12:45 - 15:45
+CSC410,Data Communication and Networking,Saadia Karim,4,Thursday 09:00 - 12:00
+MIS526,Introduction To Enterprise Resource Planning Systems,Saadia Karim,6,Thursday 12:45 - 15:45
+CSC113,Programming Fundamentals (lab),Urooj Yousuf Khan,2,Thursday 09:00 - 12:00
+CSC217,Intro to Database Systems LAB,Urooj Yousuf Khan,1,Thursday 12:45 - 15:45
+MIS413,Information Technology - I,Urooj Yousuf Khan,4,Friday 09:00 - 12:00
+PHY111,Applied Physics,Zeeshan Asim,6,Thursday 12:45 - 15:45
