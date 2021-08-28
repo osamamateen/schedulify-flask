@@ -17,11 +17,13 @@ import logging
 import sys
 from sqlalchemy import create_engine
 import mysql.connector
-
-
-# engine = create_engine('mysql://root:root@localhost/schedulify-flask')
-# connection = engine.raw_connection()
-# cursor = connection.cursor()
+from flask import send_file
+# solver imports
+from helpers import getSlots
+from helpers import findUnassignedCourse
+from helpers import fillSlots
+from helpers import populatePreAsigned
+from helpers import validate
 
 app = Flask(__name__)
 
@@ -31,18 +33,9 @@ logger.addHandler(handler)  # adds handler to the werkzeug WSGI logger
 
 app.secret_key = '1231231'
 
-# Config MySQL
-# app.config['MYSQL_HOST'] = 'localhost'
-# app.config['MYSQL_USER'] = 'root'
-# app.config['MYSQL_PASSWORD'] = '1234'
-# app.config['MYSQL_DB'] = 'schedulify-flask'
-# app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234@localhost/schedulify-flask'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# init MySQL
-# mysql = MySQL(app)
 db = SQLAlchemy(app)
 
 
@@ -134,19 +127,12 @@ def index():
 @is_logged_in
 def dashboard():
     userRequests = Users.query.filter(Users.status == 0).all()
-    
+
     activeFaculty = Users.query.filter(Users.status == 1).all()
     activeFaculty = len(activeFaculty)
-    
-    # cur = mysql.connection.cursor()
 
-    # cursor.execute("SELECT * FROM users WHERE status = 0")
-
-    # userRequests = cursor.fetchall()
-    # commit to DB
-
-    # course_requests = CourseRequests.query.filter(
-    #     (CourseRequests.approved == 0) & (CourseRequests.deleted == 0)).all()
+    approved_requests = CourseRequests.query.filter(
+        (CourseRequests.approved == 1) & (CourseRequests.deleted == 0)).all()
 
     course_requests = CourseRequests.query.filter(
         (CourseRequests.deleted != 1) & (CourseRequests.approved == 0)).all()
@@ -155,26 +141,12 @@ def dashboard():
     user_course_requests = CourseRequests.query.filter(
         (CourseRequests.approved == 0) & (CourseRequests.deleted == 0) & (CourseRequests.user_id == user_id)).all()
 
-    # courseRequests = cur.execute(
-    #     "SELECT * FROM course_requests LEFT JOIN users ON course_requests.user_id = users.id")
-
-    # courseRequests = cur.fetchall()
-    # courseRequests = ["hello"]
-
-    # mysql.connection.commit()
-    # close connection
-    # cursor.close()
-
     logger.info("here")
-    logger.info(print(course_requests))
-    # logger.info(courseRequests)
-
-    # print("You are in index")
 
     if session['role'] != '2':
         return render_template('faculty-dashboard.html', courseRequests=user_course_requests)
     else:
-        return render_template('admin-dashboard.html', activeFaculty=activeFaculty, userRequests=userRequests, courseRequests=course_requests)
+        return render_template('admin-dashboard.html', activeFaculty=activeFaculty, userRequests=userRequests, approvedRequests=approved_requests, courseRequests=course_requests)
 
 
 @app.route('/delete-course/<id>', methods=['GET', 'POST'])
@@ -183,9 +155,7 @@ def deleteCourse(id):
     delete_course = CourseRequests.query.get(id)
     delete_course.deleted = 1
     db.session.commit()
-
     flash('Course Request Deleted Successfully')
-
     return redirect(request.referrer)
 
 
@@ -195,9 +165,7 @@ def approveCourse(id):
     approve_course = CourseRequests.query.get(id)
     approve_course.approved = 1
     db.session.commit()
-
     flash('Course Request Approved Successfully')
-
     return redirect(request.referrer)
 
 
@@ -207,9 +175,7 @@ def disapproveCourse(id):
     disapprove_course = CourseRequests.query.get(id)
     disapprove_course.approved = 0
     db.session.commit()
-
     flash('Course Request Disapproved Successfully')
-
     return redirect(request.referrer)
 
 
@@ -217,7 +183,6 @@ def disapproveCourse(id):
 @is_logged_in
 def deleteFaculty(id):
     delete_faculty = Users.query.get(id)
-    # delete_faculty.deleted = 1
     db.session.delete(delete_faculty)
     db.session.commit()
 
@@ -258,22 +223,10 @@ class courseRequestForm(Form):
         4, 'Fourth')])
     approved = HiddenField()
 
-# def is_admin(f):
-#     @wraps(f)
-#     def wrap(*args, **kwargs):
-#         if session['role'] == 2:
-#             return f(*args, **kwargs)
-#         else:
-#             flash('Unauthorized, please login', 'danger')
-#             return redirect(url_for('login'))
-#     return wrap
-
 
 @app.route('/course-requests', methods=['GET', 'POST'])
 @is_logged_in
 def courseRequest():
-    # course_requests = CourseRequests.query.all()
-
     approved_requests = CourseRequests.query.filter(
         (CourseRequests.approved == 1) & (CourseRequests.deleted == 0)).all()
 
@@ -302,19 +255,6 @@ def courseRequest():
             user_id, user_name, course_code, course_title, semester, slot, day, created_at, deleted, approved)
         db.session.add(course_request)
         db.session.commit()
-
-        # create cursor
-        # cur = mysql.connection.cursor()
-
-        # cur.execute("INSERT INTO course_requests(user_id, course_code, course_title, semester, day, slot) VALUES(%s,%s, %s, %s, %s,%s)",
-        #             (user_id, course_code, course_title, semester, day, slot))
-
-        # # commit to DB
-        # mysql.connection.commit()
-
-        # # close connection
-        # cur.close()
-
         flash('Your request has been submitted.', 'success')
 
         return redirect(url_for('index'))
@@ -330,7 +270,7 @@ def scheduler():
     with open('schedule.csv') as f:
         result = [{k: v for k, v in row.items()}
                   for row in csv.DictReader(f, skipinitialspace=True)]
-    return render_template('scheduler.html', result=result)
+    return render_template('scheduler.html', result=result, coursesAssigned=0, timeTaken=round(0, 1), violated=0, isSolved=False)
 
 
 UPLOAD_FOLDER = './uploads'
@@ -344,23 +284,10 @@ def upload():
         csvFile.filename = 'data.csv'
         path = os.path.join(app.config['UPLOAD_FOLDER'], csvFile.filename)
         csvFile.save(path)
-
-        print("SAVED")
+        print("file saved")
     else:
         print('no file')
     return redirect(url_for('scheduler'))
-
-
-# read csv file and save it to dictionary
-fileName = 'uploads/data2.csv'
-f = open(fileName, 'r', errors="ignore")
-reader = csv.reader(f)
-coursesData = {}
-for row in reader:
-    coursesData[row[0]] = {'faculty': row[1], 'semester': row[2]}
-
-# courses data by faculty name
-courses = sorted(coursesData, key=lambda x: (coursesData[x]['faculty']))
 
 # Register form class
 
@@ -384,40 +311,23 @@ class RegisterForm(Form):
 # User Register
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    form = RegisterForm(request.form)
-    if request.method == 'POST' and form.validate():
-        name = form.name.data
-        email = form.email.data
-        faculty_code = form.faculty_code.data
-        password = sha256_crypt.encrypt(str(form.password.data))
-        register_date = 'dummy-date'
-        role = form.role.data
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        faculty_code = request.form['faculty_code']
+        password = sha256_crypt.encrypt(str(request.form['password']))
+        register_date = request.form['faculty_code']
+        role = request.form['role']
         status = 0
         deleted = 0
-# remove this later
-        # status = 0
-
         register_data = Users(name, email, faculty_code, password, register_date, role,
                               status, deleted)
         db.session.add(register_data)
         db.session.commit()
-        # create cursor
-
-        # cur = mysql.connection.cursor()
-
-        # cur.execute("INSERT INTO users(name, email, username, password, role, faculty_code, deleted, status, register_date) VALUES(%s, %s, %s, %s, %s, %s, %s)",
-        #             (name, email, username, password, role, faculty_code, 0))
-
-        # # commit to DB
-        # mysql.connection.commit()
-
-        # # close connection
-        # cur.close()
-
         flash('You are now registered and can log in', 'success')
 
         return redirect(url_for('login'))
-    return render_template('register.html', form=form)
+    return render_template('register.html')
 
 # user login
 
@@ -428,24 +338,8 @@ def login():
         # get form fields
         email = request.form['email']
         password_candidate = request.form['password']
-
-        # create a cursor
-        # cur = mysql.connection.cursor()
-
-        # get user by email
-        # result = cur.execute(
-        #     "SELECT * FROM users WHERE email = %s", [email])
-
         result = Users.query.filter(Users.email == email).first()
-
-        # logger.info(print(result))
-
         if result:
-
-            # data = result._asdict()
-
-            # get stored hash
-            # data = query.fetchone()
             password = result.password
 
             # compare passwords
@@ -465,8 +359,6 @@ def login():
             else:
                 error = 'Invalid Login'
                 return render_template('login.html', error=error)
-            # close connection
-            # cur.close()
 
         else:
             error = 'Email not found'
@@ -476,8 +368,6 @@ def login():
 
 
 # logout
-
-
 @app.route('/logout')
 @is_logged_in
 def logout():
@@ -487,158 +377,89 @@ def logout():
     return redirect(url_for('login'))
 
 
-# initialize variables
-board = []
-day1 = []
-day2 = []
-day3 = []
-day4 = []
-slot_len = math.ceil((len(courses)/4)/4)
-assigned_courses = []
-previous_courses = []
+# ----------------------------SOLVER----------------------------------
+# read csv file and save it to dictionary
+fileName = 'uploads/data.csv'
+f = open(fileName, 'r', errors="ignore")
+reader = csv.reader(f)
+next(reader)
+coursesData = {}
+
+for row in reader:
+    if(row):
+        coursesData[row[0]] = {'title': row[1], 'faculty': row[2],
+                               'semester': row[3].split(' '), 'slot': row[4]}
+courses = sorted(coursesData, key=lambda x: (coursesData[x]['faculty']))
+
+courseLimit = math.ceil(len(courses)/12)
+slots = getSlots()
+
+preAssigned = []
+constraintsviolated = []
 result = []
-k = 0
-
-# create an empty board with -- representing an emoty slot
 
 
-def create_board(num_of_courses):
-    x = math.ceil(slot_len * 4)
-    for slot in range(x):
-        day1.append("--")
-        day2.append("--")
-        day3.append("--")
-        day4.append("--")
-    board.append(day1)
-    board.append(day2)
-    board.append(day3)
-    board.append(day4)
-
-# custom function to print the board neatly
-
-
-def print_board():
-    for i in range(len(board)):
-        print("Day", i, end="       | ")
-        for j in range(len(board[i])):
-            if j % slot_len == 0 and j != 0:
-                print(" | ", end="")
-            print(board[i][j], end="")
-        print("")
-
-
-# check if the course is valid for the current slot
-def valid(thisCourse, thisDay, thisSlot):
-    global previous_courses
-    # if the courses in the slot have reached the max length of slot then empty the temp variable to keep track of courses in the slot
-    if(len(previous_courses) == slot_len):
-        previous_courses = []
-
-    # if the course is already assigned return false
-    if thisCourse in assigned_courses:
-        return False
-
-    # check the slot being assigned a course
-    if thisSlot % slot_len != 0 and thisSlot != 0:
-
-        # iterate over all the courses in the current slot
-        for prevCourse in previous_courses:
-            # if there is an empty space return true
-            if prevCourse == "--":
+def solve(courses, courseData, slots):
+    if not findUnassignedCourse(courses, coursesData):
+        return True
+    course = findUnassignedCourse(courses, coursesData)
+    for slot in slots.keys():
+        count = slots[slot]['count']
+        if(validate(slot, course, count, courseLimit, coursesData, slots)):
+            coursesData[course]['slot'] = slot
+            slots[slot]['count'] = slots[slot]['count'] + 1
+            slots[slot]['faculty'].append(coursesData[course]['faculty'])
+            for semester in coursesData[course]['semester']:
+                slots[slot]['semester'].append(semester)
+            course_detail = {
+                'course': course,
+                'title': coursesData[course]["title"],
+                'faculty': coursesData[course]["faculty"],
+                'semester': ' '.join(map(str, coursesData[course]["semester"])),
+                'slot': slot,
+            }
+            result.append(course_detail)
+            isSolved = solve(courses, courseData, slots)
+            if (isSolved == True):
                 return True
-            # if the faculty of this course is the same as the faculty of any other course in this slot return false
-            if coursesData[prevCourse]["faculty"] == coursesData[thisCourse]["faculty"]:
-                return False
+            else:
+                coursesData[course]['slot'] = ''
+                slots[slot]['count'] = slots[slot]['count'] - 1
+                slots[slot]['faculty'].remove(coursesData[course]['faculty'])
+                for semester in coursesData[course]['semester']:
+                    slots[slot]['semester'].remove(semester)
+                result.remove(course_detail)
+                constraintsviolated.append(course)
 
-            # if there is already a course of the same semester in this slot return false
-            if coursesData[prevCourse]["semester"] == coursesData[thisCourse]["semester"]:
-                return False
-    return True
-
-
-# find an empty space in the board
-def find_empty(board):
-    for row in range(len(board)):
-        for col in range(len(board[0])):
-            # if the position is empty denoted by -- then return the position
-            if board[row][col] == "--":
-                return (row, col)
-    # if there is no empty space return none
-    return None
-
-
-def solve(board, courses, k):
-    if (k >= len(courses)):
-        return True
-    if len(courses) == len(assigned_courses):
-        return True
-    if not find_empty(board):
-        return True
-    else:
-        pos = find_empty(board)
-        row = pos[0]
-        col = pos[1]
-        for i in range(k, len(courses)):
-            thisCourse = list(courses)[i]
-            if(valid(thisCourse, row, col)):
-                board[row][col] = thisCourse
-                if(row < 2):
-                    if(col >= 0 and col < len(board[row])/4):
-                        slot = 1
-                    if(col >= len(board[row])/4 and col < len(board[row])/2):
-                        slot = 2
-                    if(col >= len(board[row])/2 and col < (len(board[row]) * 3/4)):
-                        slot = 3
-                    if(col >= (len(board[row]) * 3/4) and col < len(board[row])):
-                        slot = 4
-                else:
-                    board[row][col+1] = "x"
-                    if(col >= 0 and col < len(board[row])/4):
-                        slot = 1
-                    if(col >= len(board[row])/4 and col < len(board[row])/2):
-                        slot = 1
-                    if(col >= len(board[row])/2 and col < (len(board[row]) * 3/4)):
-                        slot = 2
-                    if(col >= (len(board[row]) * 3/4) and col < len(board[row])):
-                        slot = 2
-
-                course_detail = {
-                    'course': thisCourse,
-                    'faculty': coursesData[thisCourse]["faculty"],
-                    'semester': coursesData[thisCourse]["semester"],
-                    'slot': slot,
-                    'day': row
-                }
-                previous_courses.append(thisCourse)
-                assigned_courses.append(thisCourse)
-                result.append(course_detail)
-                isSolved = solve(board, courses, k + 1)
-                if (isSolved == True):
-                    return True
-                assigned_courses.pop()
-                result.pop()
-                k = k - 1
-                board[row][col] = "--"
-        return False
+    return False
 
 
 @app.route('/generate', methods=['GET'])
 def generate():
     started = time.time()
-    create_board(len(courses))
-    solve(board, courses, k)
-    print_board()
-    print("Solution Found: ", solve(board, courses, k))
+    fillSlots(courses, coursesData, slots)
+    populatePreAsigned(courses, coursesData, preAssigned)
+    isSolved = solve(courses, coursesData, slots)
     completed = time.time()
-    print("Time Taken: ", completed - started)
+    coursesAssigned = len(result)
+    if(completed and started):
+        timeTaken = completed - started
+    else:
+        timeTaken = 0
+    print(completed - started)
+    violated = len(constraintsviolated)
     toCSV = result
     keys = toCSV[0].keys()
     with open('schedule.csv', 'w', newline='') as output_file:
         dict_writer = csv.DictWriter(output_file, keys)
         dict_writer.writeheader()
         dict_writer.writerows(toCSV)
-    return redirect(url_for('scheduler'))
+    with open('schedule.csv') as f:
+        savedSolution = [{k: v for k, v in row.items()}
+                         for row in csv.DictReader(f, skipinitialspace=True)]
+    return render_template('scheduler.html', result=savedSolution, coursesAssigned=coursesAssigned, timeTaken=float("{:.2f}".format(timeTaken * 100)), violated=violated, isSolved=isSolved)
 
 
 if __name__ == '__main__':
+    # app.run(host="schedulify", port=8000, debug=True)
     app.run(debug=True)

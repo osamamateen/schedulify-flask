@@ -1,27 +1,38 @@
-﻿c01,Saadia Karim,1
-c02,Saadia Karim,2
-c03,Waqar Khan,1
-c05,Dr. Mubashir,3
-c16,Dr. Mansoor,4
-c06,Dr. Mubashir,4
-c07,Dr. Eshan,5
-c08,Dr. Eshan,6
-c04,Waqar Khan,2
-c09,Dr. Mansoor,4
-c10,Dr. Mubashir,3
-c11,Dr. Eshan,2
-c13,Dr. Mansoor,1
-c14,Dr. Mansoor,2
-c12,Dr. Eshan,1
-c15,Dr. Mansoor,3
-c011,Saadia Karim,1
-c021,Saadia Karim,2
-c031,Waqar Khan,1
-c051,Dr. Mubashir,3
-c151,Dr. Mansoor,3
-c015,Saadia Karim,1
-c025,Saadia Karim,2
-c035,Waqar Khan,1
-c055,Dr. Mubashir,3
-c165,Dr. Mansoor,4
-c065,Dr. Mubashir,4
+﻿Course Code, Course Title, Faculty Name, Semester, Day Time
+CSC318,Design and Analysis of Algorithms,Asim Iftikhar,3 1,Monday 09:00 - 12:00
+MIS303,Is Audit and Management,Asim Iftikhar,2,
+MIS527,Information Security,Asim Iftikhar,6,
+CSC311,Theory Of Automata And Formal Language,Dr. Ehsan Rehman,3,Monday 09:00 - 12:00
+CSC412,Artificial Intelligence,Dr. Ehsan Rehman,1,
+CSC456,Machine Learning,Dr. Ehsan Rehman,1 4,
+CSC547,Advanced Operating Systems,Dr. Ehsan Rehman,6,
+CSC582,Pattern Recognition,Dr. Muhammad Mansoor Alam,7,Monday 09:00 - 12:00
+MIS691,Capstone Project - I,Dr. Muhammad Mansoor Alam,5,
+MIS692,Capstone Project - II,Dr. Muhammad Mansoor Alam,4 2,
+PCS749,Seminar on Logic and Scientific Computing,Dr. Muhammad Mansoor Alam,6,
+PCS743,Fuzzy Topologies with Human Centric Computing,Dr. S.M.Aqil Burney,6,
+CSC205,Computer Architecture and Organization,Dr. Syed Mubashir Ali,3,
+CSC320,Human Computer Interaction,Dr. Syed Mubashir Ali,1,
+CSC549,Theory of Programming Languages,Dr. Tariq Rahim Soomro,6,
+PCS701,Big Data Analytics And Knowledge Discovery,Dr. Tariq Rahim Soomro,7,
+CSC113,Programming Fundamentals,Engr Asghar Khan,3,Monday 09:00 - 12:00
+CSC213,Object Oriented Programming,Engr Asghar Khan,2,
+CSC111,Introduction To Information And Communication Technology,Imran,1,Monday 09:00 - 12:00
+CSC465,Data Warehousing,Khalid Bin Muhammad,2,
+MIS305,CRM Systems and Applications,Khalid Bin Muhammad,4,Monday 09:00 - 12:00
+CSC313,Operating Systems Lab,Muhammad Ayoub Kamal,2,
+CSC461,Project - I,Muhammad Ayoub Kamal,5,
+CSC115,Digital Logic And Design,Muhammad Waqar Khan,4,
+CSC443,Mobile Computing,Muhammad Waqar Khan,1,
+CSC448,Digital Signal Processing,Muhammad Waqar Khan,3,
+CSC464,Wireless Network,Muhammad Waqar Khan,3,
+CSC467,Neural Networks,Muhammad Waqar Khan,2,
+MIS303,Is Audit and Management,Rabab Naqvi,3,
+MIS416,Information Technology - II,Rabab Naqvi,2,
+BDS301,Data Mining - I,Saadia Karim,3,
+CSC410,Data Communication and Networking,Saadia Karim,4,
+MIS526,Introduction To Enterprise Resource Planning Systems,Saadia Karim,6,
+CSC113,Programming Fundamentals (lab),Urooj Yousuf Khan,2,
+CSC217,Intro to Database Systems LAB,Urooj Yousuf Khan,1,
+MIS413,Information Technology - I,Urooj Yousuf Khan,4,
+PHY111,Applied Physics,Zeeshan Asim,6,
